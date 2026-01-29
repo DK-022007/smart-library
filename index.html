@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Smart Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Lottie Player for Hero -->
+    <!-- Lottie Player for Hero -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link rel="stylesheet" href="opening_animation.css">
+</head>
+
+<body>
+    <!-- Opening Animation Overlay -->
+    <div class="intro-overlay" id="introOverlay">
+        <div class="intro-panel left-panel"></div>
+        <div class="intro-panel right-panel"></div>
+        <div class="intro-logo">
+            <i class="fas fa-book-reader" style="font-size: 4rem; margin-bottom: 20px;"></i>
+            <div>Smart Library</div>
+        </div>
+    </div>
+
+    <header>
+        <button class="menu-toggle" aria-label="Toggle Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="logo.png" alt="Loyola Institute of Technology Logo">
+            </a>
+        </div>
+
+        <nav class="desktop-nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="profile.html">Profile</a>
+            <a href="settings.html">Settings</a>
+            <a href="login.html" class="nav-btn">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Sidebar for Mobile -->
+    <div class="sidebar">
+        <div style="padding: 20px 30px; margin-bottom: 20px;">
+            <h3 style="color: var(--text-dark);">Menu</h3>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
+            <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="main-wrapper">
+        <!-- Hero Section (Welcome) -->
+        <section class="hero" style="min-height: 60vh; padding: 40px 10%;">
+            <div class="hero-content">
+                <h1>Welcome back, Student</h1>
+                <p>Access your department library, check due dates, and explore new resources.</p>
+
+                <!-- Search Bar -->
+                <div class="hero-search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="hero-search-input"
+                        placeholder="Search for books, journals, or resources...">
+                    <button class="search-btn">Search</button>
+                </div>
+
+                <a href="#departments" class="hero-btn">Browse Departments</a>
+            </div>
+            <div class="hero-visual">
+                <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_teqxg9.json" background="transparent"
+                    speed="1" style="width: 400px; height: 400px;" loop autoplay></lottie-player>
+            </div>
+        </section>
+
+        <!-- Main Dashboard Content (Departments) -->
+        <main class="container" id="departments">
+            <h2 class="section-title">Department Libraries</h2>
+
+            <div class="departments-grid">
+                <a href="departments/it.html" class="dept-card">
+                    <i class="fas fa-laptop-code dept-icon"></i>
+                    <h3>Information Technology</h3>
+                    <p>IT</p>
+                </a>
+                <a href="departments/cse.html" class="dept-card">
+                    <i class="fas fa-code dept-icon"></i>
+                    <h3>Computer Science</h3>
+                    <p>CSE</p>
+                </a>
+                <a href="departments/ai-ds.html" class="dept-card">
+                    <i class="fas fa-brain dept-icon"></i>
+                    <h3>AI & Data Science</h3>
+                    <p>AI&DS</p>
+                </a>
+                <a href="departments/cse-cs.html" class="dept-card">
+                    <i class="fas fa-shield-alt dept-icon"></i>
+                    <h3>Cyber Security</h3>
+                    <p>CSE (CS)</p>
+                </a>
+                <a href="departments/ece.html" class="dept-card">
+                    <i class="fas fa-broadcast-tower dept-icon"></i>
+                    <h3>Electronics & Comm</h3>
+                    <p>ECE</p>
+                </a>
+                <a href="departments/eee.html" class="dept-card">
+                    <i class="fas fa-bolt dept-icon"></i>
+                    <h3>Electrical & Electronics</h3>
+                    <p>EEE</p>
+                </a>
+                <a href="departments/mech.html" class="dept-card">
+                    <i class="fas fa-cogs dept-icon"></i>
+                    <h3>Mechanical</h3>
+                    <p>MECH</p>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>Loyola Institute of Technology's Smart Library provides state-of-the-art digital and physical
+                    resources to empower students and faculty.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#">Library Rules</a>
+                <a href="#">Book Bank</a>
+                <a href="#">Digital Journals</a>
+                <a href="#">Contact Support</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Loyola Institute of Technology</p>
+                <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> library@loyola.edu.in</p>
+                <p><i class="fas fa-phone" style="margin-right: 10px;"></i> +91 123 456 7890</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Loyola Institute of Technology. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

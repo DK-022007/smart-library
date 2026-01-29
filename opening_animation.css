@@ -1,0 +1,82 @@
+/* Opening Animation */
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    pointer-events: none;
+    /* Allow clicks to pass through after animation */
+}
+
+.intro-panel {
+    width: 50%;
+    height: 100%;
+    background: #2d3436;
+    /* Dark wood/library shelf color or just dark */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 100px;
+    /* Suggesting shelves */
+    overflow: hidden;
+    transition: transform 1.5s cubic-bezier(0.86, 0, 0.07, 1);
+    /* EaseInOutExpo-ish */
+}
+
+.left-panel {
+    border-right: 2px solid rgba(0, 0, 0, 0.5);
+    transform-origin: left center;
+}
+
+.right-panel {
+    border-left: 2px solid rgba(0, 0, 0, 0.5);
+    transform-origin: right center;
+}
+
+/* Books on shelves illusion */
+.intro-panel::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        repeating-linear-gradient(90deg,
+            #4a3b32 0px, #4a3b32 20px,
+            #3d2f28 20px, #3d2f28 40px,
+            #5c4a3f 40px, #5c4a3f 55px,
+            #2d3436 55px, #2d3436 60px);
+    opacity: 0.1;
+}
+
+/* Loading/Logo in center before split */
+.intro-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    font-size: 3rem;
+    color: white;
+    font-weight: 700;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.intro-active .left-panel {
+    transform: translateX(-100%);
+}
+
+.intro-active .right-panel {
+    transform: translateX(100%);
+}
+
+.intro-active .intro-logo {
+    opacity: 0;
+}

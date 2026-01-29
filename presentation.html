@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Digital Library System Presentation</title>
+    <link rel="stylesheet" href="presentation.css">
+    <!-- Using Google Fonts for that premium academic look -->
+    <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Segoe+UI:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="presentation-container">
+
+        <!-- Slide 1: Cover -->
+        <div class="slide active" id="slide-1">
+            <!-- Background image handles the visuals. No text as requested. -->
+        </div>
+
+        <!-- Slide 2: Features -->
+        <div class="slide" id="slide-2">
+            <div class="texture-overlay"></div>
+            <h2>Key Features of the Digital Library System</h2>
+            <div class="content-grid">
+                <div class="feature-card">
+                    <div class="feature-title">I. Centralized Digital Access</div>
+                    <div class="feature-desc">All library book details are stored in one digital platform, making access
+                        faster and more organized for students.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">II. Department-Wise Segregation</div>
+                    <div class="feature-desc">Books are arranged based on individual departments, helping students
+                        quickly find relevant academic resources.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">III. Time-Saving for Students</div>
+                    <div class="feature-desc">Students can check book availability without physically searching shelves,
+                        reducing time spent inside the library.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">IV. User-Friendly Interface</div>
+                    <div class="feature-desc">The website is designed with a simple layout, clear navigation, and
+                        readable fonts for easy usage.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">V. Improved Book Management</div>
+                    <div class="feature-desc">Library staff can manage book records efficiently with reduced manual
+                        errors.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Benefits -->
+        <div class="slide" id="slide-3">
+            <div class="texture-overlay"></div>
+            <h2>Advantages of the Digital Library System</h2>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-number">6</div>
+                    <div class="benefit-text">
+                        <strong>Search-Based Access</strong>
+                        <span>A search option helps users locate books instantly using keywords, titles, or
+                            categories.</span>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-number">7</div>
+                    <div class="benefit-text">
+                        <strong>24/7 Information Availability</strong>
+                        <span>Students can view library book details anytime, even outside library working hours.</span>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-number">8</div>
+                    <div class="benefit-text">
+                        <strong>Reduced Paper Work</strong>
+                        <span>Digital records minimize the need for registers and manual documentation.</span>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-number">9</div>
+                    <div class="benefit-text">
+                        <strong>Modern & Professional System</strong>
+                        <span>The system reflects a smart and modern approach, aligning with digital education
+                            standards.</span>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-number">10</div>
+                    <div class="benefit-text">
+                        <strong>Student-Focused Design</strong>
+                        <span>The system is developed mainly for students, making academic resource access more
+                            convenient and structured.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="slide-indicator">
+            <div class="dot active" onclick="goToSlide(0)"></div>
+            <div class="dot" onclick="goToSlide(1)"></div>
+            <div class="dot" onclick="goToSlide(2)"></div>
+        </div>
+
+        <div class="nav-controls">
+            <button class="nav-btn" onclick="prevSlide()">Previous</button>
+            <button class="nav-btn" onclick="nextSlide()">Next</button>
+        </div>
+
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function updateSlides() {
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                updateSlides();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlides();
+            }
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlides();
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+    </script>
+</body>
+
+</html>

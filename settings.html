@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Smart Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <button class="menu-toggle" aria-label="Toggle Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="logo-container">
+            <a href="dashboard.html">
+                <img src="logo.png" alt="Loyola Institute of Technology Logo">
+            </a>
+        </div>
+
+        <nav class="desktop-nav">
+            <a href="index.html">Home</a>
+            <a href="profile.html">Profile</a>
+            <a href="settings.html" class="active">Settings</a>
+            <a href="login.html" class="nav-btn">Logout</a>
+        </nav>
+    </header>
+
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
+            <li><a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
+            <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="main-wrapper">
+        <main class="container">
+            <div class="glass-container" style="max-width: 800px; margin: 0 auto;">
+                <h2 style="margin-bottom: 30px;">Account Settings</h2>
+
+                <div style="margin-bottom: 30px;">
+                    <h3 style="margin-bottom: 15px; color: var(--primary-color);">Appearance</h3>
+                    <div
+                        style="display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.5); padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                        <span>Dark Mode</span>
+                        <i class="fas fa-toggle-off" id="darkModeToggle"
+                            style="font-size: 1.5rem; color: #aaa; cursor: pointer;"></i>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 30px;">
+                    <h3 style="margin-bottom: 15px; color: var(--primary-color);">Notifications</h3>
+                    <div
+                        style="display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.5); padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                        <span>Email Notifications</span>
+                        <i class="fas fa-toggle-on"
+                            style="font-size: 1.5rem; color: var(--primary-color); cursor: pointer;"></i>
+                    </div>
+                    <div
+                        style="display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.5); padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                        <span>SMS Alerts (Due Dates)</span>
+                        <i class="fas fa-toggle-on"
+                            style="font-size: 1.5rem; color: var(--primary-color); cursor: pointer;"></i>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom: 15px; color: var(--primary-color);">Security</h3>
+                    <button class="hero-btn" style="padding: 10px 20px; font-size: 0.9rem;">Change Password</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>Loyola Institute of Technology's Smart Library.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#">Library Rules</a>
+                <a href="#">Contact Support</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> library@loyola.edu.in</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Loyola Institute of Technology. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

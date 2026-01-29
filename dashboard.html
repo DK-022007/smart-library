@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Smart Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <button class="menu-toggle" aria-label="Toggle Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="logo-container">
+            <a href="dashboard.html">
+                <img src="logo.png" alt="Loyola Institute of Technology Logo">
+            </a>
+        </div>
+
+        <nav class="desktop-nav">
+            <a href="dashboard.html" class="active">Dashboard</a>
+            <a href="profile.html">My Profile</a>
+            <a href="settings.html">Settings</a>
+            <a href="index.html" class="nav-btn">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar">
+        <div style="padding: 20px 30px; margin-bottom: 20px;">
+            <h3 style="color: var(--text-dark);">Menu</h3>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
+            <li><a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
+            <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="main-wrapper">
+        <main class="container">
+            <!-- Dashboard Stats -->
+            <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">My Dashboard</h2>
+
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon due">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Issued Books</h3>
+                        <p class="stat-value" id="issuedCount">--</p>
+                        <p class="stat-meta">Limit: 5 books</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon remaining">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Remaining</h3>
+                        <p class="stat-value" id="remainingCount">--</p>
+                        <p class="stat-meta">Quota available</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon fine">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Fine</h3>
+                        <p class="stat-value" id="totalFine">--</p>
+                        <p class="stat-meta">Pending payment</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Issued Books Section -->
+            <div class="glass-container" style="margin-top: 40px; padding: 30px;">
+                <h3
+                    style="margin-bottom: 25px; color: var(--text-dark); display: flex; align-items: center; justify-content: space-between;">
+                    Runnig Issued Books
+                    <span style="font-size: 0.9rem; color: var(--text-light); font-weight: normal;">Due dates are
+                        critical</span>
+                </h3>
+
+                <div class="table-responsive">
+                    <table class="issued-books-table">
+                        <thead>
+                            <tr>
+                                <th>Book Title</th>
+                                <th>Issue Date</th>
+                                <th>Due Date</th>
+                                <th>Status</th>
+                                <th>Fine</th>
+                            </tr>
+                        </thead>
+                        <tbody id="issuedBooksBody">
+                            <!-- Data will be populated by script.js -->
+                            <tr>
+                                <td colspan="5" style="text-align: center; padding: 20px;">Loading data...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>Loyola Institute of Technology's Smart Library provides state-of-the-art digital and physical
+                    resources to empower students and faculty.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#">Library Rules</a>
+                <a href="#">Book Bank</a>
+                <a href="#">Digital Journals</a>
+                <a href="#">Contact Support</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Loyola Institute of Technology</p>
+                <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> library@loyola.edu.in</p>
+                <p><i class="fas fa-phone" style="margin-right: 10px;"></i> +91 123 456 7890</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Loyola Institute of Technology. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

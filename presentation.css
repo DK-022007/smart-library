@@ -1,0 +1,238 @@
+:root {
+    --bg-cream: #f5f1e6;
+    --text-brown: #3e2723;
+    --accent-gold: #c5a059;
+    --dark-green: #1b3a2b;
+    --light-wood: #8d6e63;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    /* Prevent scrolling, we'll use JS for slide control */
+    background-color: var(--bg-cream);
+    color: var(--text-brown);
+}
+
+.presentation-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    /* reduced padding */
+    pointer-events: none;
+    /* Allow clicks to pass through to controls if needed, but we'll manage z-index */
+    background-size: cover;
+    background-position: center;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+    z-index: 10;
+}
+
+/* Slide 1: Cover */
+#slide-1 {
+    background-image: url('library-cover.png');
+    /* No text as requested */
+}
+
+/* Common Header Styles */
+h2 {
+    font-family: 'Georgia', serif;
+    font-size: 2.8rem;
+    color: var(--dark-green);
+    margin-bottom: 2rem;
+    /* reduced margin */
+    border-bottom: 3px solid var(--accent-gold);
+    padding-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Content Layouts */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    /* reduced gap */
+    width: 90%;
+    max-width: 1200px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    /* reduced padding */
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--accent-gold);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    background: var(--white);
+}
+
+.feature-title {
+    font-family: 'Georgia', serif;
+    color: var(--dark-green);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature-desc {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #5d4037;
+}
+
+/* Slide 3 Specifics */
+.benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    /* reduced gap */
+    width: 80%;
+    max-width: 1000px;
+}
+
+.benefit-item {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    /* Pill shape */
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s;
+    border: 1px solid #e0e0e0;
+}
+
+.benefit-item:hover {
+    background: var(--white);
+    transform: translateX(10px);
+    border-color: var(--accent-gold);
+}
+
+.benefit-number {
+    background-color: var(--dark-green);
+    color: var(--accent-gold);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-family: 'Georgia', serif;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.benefit-text strong {
+    color: var(--dark-green);
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.benefit-text span {
+    color: #5d4037;
+    font-size: 0.95rem;
+}
+
+/* Navigation Controls - Simple and Unobtrusive */
+.nav-controls {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    z-index: 100;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    background: rgba(27, 58, 43, 0.8);
+    /* Dark green transparent */
+    color: var(--accent-gold);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.nav-btn:hover {
+    background: var(--dark-green);
+}
+
+.slide-indicator {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(62, 39, 35, 0.3);
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: var(--dark-green);
+    transform: scale(1.2);
+}
+
+/* Background texture overlay for slides 2 & 3 */
+.texture-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(245, 241, 230, 0.9), rgba(245, 241, 230, 0.9)),
+        url('library-cover.png');
+    /* reusing the cover potentially, or just using the cream color */
+    background-size: cover;
+    z-index: -1;
+}
