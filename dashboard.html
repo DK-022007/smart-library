@@ -12,6 +12,13 @@
 </head>
 
 <body>
+    <script src="auth.js"></script>
+    <script>
+        // Protect this page - redirect to login if not authenticated
+        if (!Auth.isAuthenticated()) {
+            window.location.href = 'login.html';
+        }
+    </script>
 
     <header>
         <button class="menu-toggle" aria-label="Toggle Menu">
@@ -27,7 +34,9 @@
             <a href="dashboard.html" class="active">Dashboard</a>
             <a href="profile.html">My Profile</a>
             <a href="settings.html">Settings</a>
-            <a href="index.html" class="nav-btn">Logout</a>
+            <button id="logoutBtn" class="nav-btn" >
+                <i class="fas fa-sign-out-alt" style="margin-right: 6px;"></i>Logout
+            </button>
         </nav>
     </header>
 
@@ -40,7 +49,7 @@
             <li><a href="dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
             <li><a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
             <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
-            <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            <li><a href="#" id="sidebarLogout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
     </div>
 
@@ -145,6 +154,28 @@
         </div>
     </footer>
 
+    <script src="auth.js"></script>
+    <script>
+        // Protect dashboard page - redirect if not logged in
+        if (!Auth.protectPage()) {
+            // If redirect is needed, stop further execution
+        }
+
+        // Add logout functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const logoutBtn = document.getElementById('logoutBtn');
+            const sidebarLogout = document.getElementById('sidebarLogout');
+
+            function handleLogout(e) {
+                e.preventDefault();
+                Auth.logout();
+                window.location.href = 'login.html';
+            }
+
+            if (logoutBtn) logoutBtn.addEventListener('click', handleLogout);
+            if (sidebarLogout) sidebarLogout.addEventListener('click', handleLogout);
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 

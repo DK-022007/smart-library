@@ -28,6 +28,28 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    position: relative;
+}
+
+/* Soft vignette + warm lighting effect to gently focus the form */
+body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.45) 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Subtle warm overlay on top of the image to improve contrast */
+body::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 241, 224, 0.02), rgba(0,0,0,0.25));
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* Decorative circles - softer */
@@ -71,6 +93,7 @@ body {
     border-radius: 24px;
     padding: 50px 40px;
     width: 420px;
+    max-width: calc(100% - 48px);
     text-align: center;
     color: var(--text-dark);
     transition: transform 0.4s ease;
@@ -239,4 +262,16 @@ body.dark-mode input:-webkit-autofill:active {
 
 body.dark-mode {
     color-scheme: dark;
+}
+
+/* Responsive tweaks */
+@media (max-width: 520px) {
+    .login-container {
+        padding: 28px 20px;
+        border-radius: 16px;
+    }
+
+    .c1, .c2 {
+        display: none;
+    }
 }

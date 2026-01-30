@@ -1,7 +1,151 @@
+// Dummy user credentials database
+const dummyUsers = {
+    '412622104025': {
+        password: 'password123',
+        name: "Dhivya Shree",
+        registerNumber: "412622104025",
+        rollNumber: "22IT025",
+        department: "Information Technology",
+        email: "dhivya.it@loyola.edu.in",
+        year: "3rd Year",
+        libraryStats: {
+            issuedCount: 2,
+            remainingCount: 3,
+            totalFine: 15.00,
+            books: [
+                {
+                    title: "Introduction to Algorithms",
+                    issueDate: "15 Jan 2026",
+                    dueDate: "29 Jan 2026",
+                    status: "due",
+                    fine: 0
+                },
+                {
+                    title: "Clean Code",
+                    issueDate: "10 Jan 2026",
+                    dueDate: "24 Jan 2026",
+                    status: "overdue",
+                    fine: 15.00
+                }
+            ]
+        }
+    },
+    '2026IT024': {
+        password: 'joseph123',
+        name: "Joseph Vijay",
+        registerNumber: "2026IT024",
+        rollNumber: "22IT024",
+        department: "Information Technology",
+        email: "joseph.vijay@loyola.edu.in",
+        year: "1st Year",
+        libraryStats: {
+            issuedCount: 4,
+            remainingCount: 1,
+            totalFine: 0.00,
+            books: [
+                {
+                    title: "Data Structures and Algorithms",
+                    issueDate: "05 Jan 2026",
+                    dueDate: "19 Feb 2026",
+                    status: "ontime",
+                    fine: 0
+                },
+                {
+                    title: "Python Programming",
+                    issueDate: "08 Jan 2026",
+                    dueDate: "22 Feb 2026",
+                    status: "ontime",
+                    fine: 0
+                },
+                {
+                    title: "Web Development Basics",
+                    issueDate: "12 Jan 2026",
+                    dueDate: "26 Feb 2026",
+                    status: "ontime",
+                    fine: 0
+                },
+                {
+                    title: "Database Design",
+                    issueDate: "20 Jan 2026",
+                    dueDate: "03 Mar 2026",
+                    status: "ontime",
+                    fine: 0
+                }
+            ]
+        }
+    },
+    '2026CSE001': {
+        password: 'cse2026',
+        name: "Priya Sharma",
+        registerNumber: "2026CSE001",
+        rollNumber: "22CSE001",
+        department: "Computer Science and Engineering",
+        email: "priya.sharma@loyola.edu.in",
+        year: "2nd Year",
+        libraryStats: {
+            issuedCount: 3,
+            remainingCount: 2,
+            totalFine: 45.00,
+            books: [
+                {
+                    title: "Computer Networks",
+                    issueDate: "02 Jan 2026",
+                    dueDate: "16 Jan 2026",
+                    status: "overdue",
+                    fine: 25.00
+                },
+                {
+                    title: "Operating Systems",
+                    issueDate: "18 Jan 2026",
+                    dueDate: "01 Feb 2026",
+                    status: "due",
+                    fine: 0
+                },
+                {
+                    title: "Compiler Design",
+                    issueDate: "22 Jan 2026",
+                    dueDate: "08 Mar 2026",
+                    status: "ontime",
+                    fine: 0
+                }
+            ]
+        }
+    },
+    '2026ECE045': {
+        password: 'ece2026',
+        name: "Rajesh Kumar",
+        registerNumber: "2026ECE045",
+        rollNumber: "22ECE045",
+        department: "Electronics and Communication Engineering",
+        email: "rajesh.kumar@loyola.edu.in",
+        year: "3rd Year",
+        libraryStats: {
+            issuedCount: 1,
+            remainingCount: 4,
+            totalFine: 0.00,
+            books: [
+                {
+                    title: "Digital Signal Processing",
+                    issueDate: "25 Jan 2026",
+                    dueDate: "15 Mar 2026",
+                    status: "ontime",
+                    fine: 0
+                }
+            ]
+        }
+    }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     // Check for dark mode preference
     if (localStorage.getItem('darkMode') === 'enabled') {
         document.body.classList.add('dark-mode');
+    }
+
+    // Redirect if already logged in
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+        window.location.href = 'dashboard.html';
+        return;
     }
 
     const loginForm = document.getElementById('loginForm');
@@ -12,6 +156,10 @@ document.addEventListener('DOMContentLoaded', () => {
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
+        // Get form values
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+
         // Disable button
         loginBtn.disabled = true;
         btnText.textContent = "Authenticating...";
@@ -20,16 +168,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Simulate network request
         setTimeout(() => {
-            alert('Login Successful! Welcome to the Smart Library.');
+            // Check credentials against dummy database
+            if (dummyUsers[username] && dummyUsers[username].password === password) {
+                const userData = dummyUsers[username];
 
-            // Reset button (or redirect in a real app)
-            loginBtn.disabled = false;
-            btnText.textContent = "Login";
-            btnIcon.className = "fas fa-sign-in-alt";
-            loginBtn.style.cursor = "pointer";
+                // Store authentication state and user data
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('userData', JSON.stringify(userData));
 
-            // Redirect to index.html (Main Dashboard)
-            window.location.href = 'index.html';
-        }, 2000);
+                // Success feedback
+                btnText.textContent = "Success!";
+                btnIcon.className = "fas fa-check-circle";
+                loginBtn.style.background = "linear-gradient(135deg, #2ecc71 0%, #27ae60 100%)";
+
+                // Smooth transition before redirect
+                setTimeout(() => {
+                    document.querySelector('.login-container').style.opacity = '0';
+                    document.querySelector('.login-container').style.transform = 'scale(0.95)';
+
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.html';
+                    }, 300);
+                }, 500);
+            } else {
+                // Failed authentication
+                btnText.textContent = "Failed!";
+                btnIcon.className = "fas fa-times-circle";
+                loginBtn.style.background = "linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)";
+                loginBtn.disabled = false;
+
+                // Reset form after 2 seconds
+                setTimeout(() => {
+                    btnText.textContent = "Login";
+                    btnIcon.className = "fas fa-sign-in-alt";
+                    loginBtn.style.background = "";
+                    document.getElementById('password').value = '';
+                    alert('Invalid credentials. Please check your Student ID and Password.\n\nDemo credentials:\n- 412622104025 / password123\n- 2026IT024 / joseph123\n- 2026CSE001 / cse2026\n- 2026ECE045 / ece2026');
+                }, 2000);
+            }
+        }, 1500);
     });
 });

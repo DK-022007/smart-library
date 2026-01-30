@@ -40,7 +40,7 @@
             <a href="index.html" class="active">Home</a>
             <a href="profile.html">Profile</a>
             <a href="settings.html">Settings</a>
-            <a href="login.html" class="nav-btn">Logout</a>
+            <a href="login.html" class="nav-btn">Login</a>
         </nav>
     </header>
 
@@ -53,7 +53,7 @@
             <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
             <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
-            <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
         </ul>
     </div>
 
@@ -123,6 +123,49 @@
                     <p>MECH</p>
                 </a>
             </div>
+
+            <!-- Demo Login Section -->
+            <div style="margin-top: 60px; padding: 40px; background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.1) 100%); border-radius: 15px; border: 2px solid rgba(102,126,234,0.2);">
+                <h3 style="text-align: center; margin-bottom: 30px; color: var(--text-dark);">
+                    <i class="fas fa-flask" style="margin-right: 10px; color: #667eea;"></i> Test Demo Accounts
+                </h3>
+                <p style="text-align: center; color: var(--text-light); margin-bottom: 25px; font-size: 0.95rem;">
+                    Click any button below to quickly login with a test account
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                    <!-- Demo Account 1 -->
+                    <button class="demo-login-btn" data-userid="412622104025" data-password="password123" style="padding: 15px; border: none; border-radius: 10px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <i class="fas fa-user" style="font-size: 1.5rem;"></i>
+                        <span>Dhivya Shree</span>
+                        <small style="font-size: 0.8rem; opacity: 0.9;">ID: 412622104025</small>
+                        <small style="font-size: 0.75rem; opacity: 0.8;">IT - 3rd Year</small>
+                    </button>
+
+                    <!-- Demo Account 2 -->
+                    <button class="demo-login-btn" data-userid="2026IT024" data-password="joseph123" style="padding: 15px; border: none; border-radius: 10px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <i class="fas fa-user" style="font-size: 1.5rem;"></i>
+                        <span>Joseph Vijay</span>
+                        <small style="font-size: 0.8rem; opacity: 0.9;">ID: 2026IT024</small>
+                        <small style="font-size: 0.75rem; opacity: 0.8;">IT - 1st Year</small>
+                    </button>
+
+                    <!-- Demo Account 3 -->
+                    <button class="demo-login-btn" data-userid="2026CSE001" data-password="cse2026" style="padding: 15px; border: none; border-radius: 10px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <i class="fas fa-user" style="font-size: 1.5rem;"></i>
+                        <span>Priya Sharma</span>
+                        <small style="font-size: 0.8rem; opacity: 0.9;">ID: 2026CSE001</small>
+                        <small style="font-size: 0.75rem; opacity: 0.8;">CSE - 2nd Year</small>
+                    </button>
+
+                    <!-- Demo Account 4 -->
+                    <button class="demo-login-btn" data-userid="2026ECE045" data-password="ece2026" style="padding: 15px; border: none; border-radius: 10px; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <i class="fas fa-user" style="font-size: 1.5rem;"></i>
+                        <span>Rajesh Kumar</span>
+                        <small style="font-size: 0.8rem; opacity: 0.9;">ID: 2026ECE045</small>
+                        <small style="font-size: 0.75rem; opacity: 0.8;">ECE - 3rd Year</small>
+                    </button>
+                </div>
+            </div>
         </main>
     </div>
 
@@ -153,6 +196,187 @@
         </div>
     </footer>
 
+    <script src="auth.js"></script>
+    <script>
+        // Dummy user credentials database (same as login.js)
+        const dummyUsers = {
+            '412622104025': {
+                password: 'password123',
+                name: "Dhivya Shree",
+                registerNumber: "412622104025",
+                rollNumber: "22IT025",
+                department: "Information Technology",
+                email: "dhivya.it@loyola.edu.in",
+                year: "3rd Year",
+                libraryStats: {
+                    issuedCount: 2,
+                    remainingCount: 3,
+                    totalFine: 15.00,
+                    books: [
+                        {
+                            title: "Introduction to Algorithms",
+                            issueDate: "15 Jan 2026",
+                            dueDate: "29 Jan 2026",
+                            status: "due",
+                            fine: 0
+                        },
+                        {
+                            title: "Clean Code",
+                            issueDate: "10 Jan 2026",
+                            dueDate: "24 Jan 2026",
+                            status: "overdue",
+                            fine: 15.00
+                        }
+                    ]
+                }
+            },
+            '2026IT024': {
+                password: 'joseph123',
+                name: "Joseph Vijay",
+                registerNumber: "2026IT024",
+                rollNumber: "22IT024",
+                department: "Information Technology",
+                email: "joseph.vijay@loyola.edu.in",
+                year: "1st Year",
+                libraryStats: {
+                    issuedCount: 4,
+                    remainingCount: 1,
+                    totalFine: 0.00,
+                    books: [
+                        {
+                            title: "Data Structures and Algorithms",
+                            issueDate: "05 Jan 2026",
+                            dueDate: "19 Feb 2026",
+                            status: "ontime",
+                            fine: 0
+                        },
+                        {
+                            title: "Python Programming",
+                            issueDate: "08 Jan 2026",
+                            dueDate: "22 Feb 2026",
+                            status: "ontime",
+                            fine: 0
+                        },
+                        {
+                            title: "Web Development Basics",
+                            issueDate: "12 Jan 2026",
+                            dueDate: "26 Feb 2026",
+                            status: "ontime",
+                            fine: 0
+                        },
+                        {
+                            title: "Database Design",
+                            issueDate: "20 Jan 2026",
+                            dueDate: "03 Mar 2026",
+                            status: "ontime",
+                            fine: 0
+                        }
+                    ]
+                }
+            },
+            '2026CSE001': {
+                password: 'cse2026',
+                name: "Priya Sharma",
+                registerNumber: "2026CSE001",
+                rollNumber: "22CSE001",
+                department: "Computer Science and Engineering",
+                email: "priya.sharma@loyola.edu.in",
+                year: "2nd Year",
+                libraryStats: {
+                    issuedCount: 3,
+                    remainingCount: 2,
+                    totalFine: 45.00,
+                    books: [
+                        {
+                            title: "Computer Networks",
+                            issueDate: "02 Jan 2026",
+                            dueDate: "16 Jan 2026",
+                            status: "overdue",
+                            fine: 25.00
+                        },
+                        {
+                            title: "Operating Systems",
+                            issueDate: "18 Jan 2026",
+                            dueDate: "01 Feb 2026",
+                            status: "due",
+                            fine: 0
+                        },
+                        {
+                            title: "Compiler Design",
+                            issueDate: "22 Jan 2026",
+                            dueDate: "08 Mar 2026",
+                            status: "ontime",
+                            fine: 0
+                        }
+                    ]
+                }
+            },
+            '2026ECE045': {
+                password: 'ece2026',
+                name: "Rajesh Kumar",
+                registerNumber: "2026ECE045",
+                rollNumber: "22ECE045",
+                department: "Electronics and Communication Engineering",
+                email: "rajesh.kumar@loyola.edu.in",
+                year: "3rd Year",
+                libraryStats: {
+                    issuedCount: 1,
+                    remainingCount: 4,
+                    totalFine: 0.00,
+                    books: [
+                        {
+                            title: "Digital Signal Processing",
+                            issueDate: "25 Jan 2026",
+                            dueDate: "15 Mar 2026",
+                            status: "ontime",
+                            fine: 0
+                        }
+                    ]
+                }
+            }
+        };
+
+        // Handle demo login buttons
+        document.addEventListener('DOMContentLoaded', () => {
+            const demoButtons = document.querySelectorAll('.demo-login-btn');
+            
+            demoButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const userId = btn.getAttribute('data-userid');
+                    const userData = dummyUsers[userId];
+                    
+                    if (userData) {
+                        // Store authentication state and user data
+                        localStorage.setItem('isLoggedIn', 'true');
+                        localStorage.setItem('userData', JSON.stringify(userData));
+                        
+                        // Show button feedback
+                        btn.style.opacity = '0.7';
+                        btn.style.transform = 'scale(0.95)';
+                        
+                        // Redirect to dashboard after a short delay
+                        setTimeout(() => {
+                            window.location.href = 'dashboard.html';
+                        }, 300);
+                    }
+                });
+
+                // Add hover effect
+                btn.addEventListener('mouseenter', () => {
+                    btn.style.transform = 'translateY(-5px)';
+                    btn.style.boxShadow = '0 10px 30px rgba(0,0,0,0.2)';
+                });
+
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = 'translateY(0)';
+                    btn.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+                });
+            });
+        });
+
+        // Update navigation on page load (handles both logged in and logged out states)
+        Auth.init();
+    </script>
     <script src="script.js"></script>
 </body>
 

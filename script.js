@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.05)';
         }
     });
+
     // Dark Mode Toggle Logic
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
@@ -66,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
     // Opening Animation Logic
     const introOverlay = document.getElementById('introOverlay');
     if (introOverlay) {
@@ -77,43 +79,45 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 introOverlay.style.display = 'none';
             }, 800); // Short delay before opening
-        })
+        }, 100);
+    }
 
-        // Dashboard Data Loading (Mock Data)
-        const issuedCountEl = document.getElementById('issuedCount');
-        const issuedBooksBody = document.getElementById('issuedBooksBody');
+    // Update Hero Welcome Message based on Authentication
+    if (Auth && Auth.isAuthenticated()) {
+        const userData = Auth.getUserData();
+        if (userData) {
+            const heroHeading = document.querySelector('.hero-content h1');
+            if (heroHeading) {
+                heroHeading.textContent = `Welcome back, ${userData.name}!`;
+            }
+        }
+    } else {
+        // Not authenticated - show generic welcome message
+        const heroHeading = document.querySelector('.hero-content h1');
+        if (heroHeading) {
+            heroHeading.textContent = 'Welcome to Smart Library';
+        }
+    }
 
-        if (issuedCountEl && issuedBooksBody) {
-            // Mock Data
-            const dashboardData = {
-                issuedCount: 2,
-                remainingCount: 3,
-                totalFine: 0,
-                books: [
-                    {
-                        title: "Introduction to Algorithms",
-                        issueDate: "15 Jan 2026",
-                        dueDate: "29 Jan 2026",
-                        status: "due", // due soon
-                        fine: 0
-                    },
-                    {
-                        title: "Clean Code",
-                        issueDate: "10 Jan 2026",
-                        dueDate: "24 Jan 2026",
-                        status: "overdue",
-                        fine: 15.00
-                    }
-                ]
-            };
+    // Dashboard Data Loading
+    const issuedCountEl = document.getElementById('issuedCount');
+    const issuedBooksBody = document.getElementById('issuedBooksBody');
+
+    if (issuedCountEl && issuedBooksBody) {
+        // Get user data from localStorage
+        const userData = localStorage.getItem('userData');
+
+        if (userData) {
+            const user = JSON.parse(userData);
+            const dashboardData = user.libraryStats;
 
             // Populate Stats
             document.getElementById('issuedCount').innerText = `${dashboardData.issuedCount}/5`;
             document.getElementById('remainingCount').innerText = dashboardData.remainingCount;
 
             const fineEl = document.getElementById('totalFine');
-            fineEl.innerText = `₹${dashboardData.books.reduce((acc, book) => acc + book.fine, 0).toFixed(2)}`;
-            if (dashboardData.books.some(b => b.status === 'overdue')) {
+            fineEl.innerText = `₹${dashboardData.totalFine.toFixed(2)}`;
+            if (dashboardData.totalFine > 0) {
                 fineEl.style.color = '#e74c3c';
             }
 
@@ -142,6 +146,44 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
                 issuedBooksBody.innerHTML += row;
             });
+
+            // Add fade-in animation
+            const dashboardStats = document.querySelector('.dashboard-stats');
+            if (dashboardStats) {
+                dashboardStats.classList.add('auth-fade-in');
+            }
         }
-    };
-})
+    }
+
+    // Profile Data Loading
+    const profileContainer = document.querySelector('.glass-container');
+    if (profileContainer && window.location.pathname.includes('profile.html')) {
+        const userData = localStorage.getItem('userData');
+
+        if (userData) {
+            const user = JSON.parse(userData);
+
+            // Update profile information
+            const nameElement = profileContainer.querySelector('h2');
+            const yearElement = profileContainer.querySelector('p[style*="color"]');
+
+            if (nameElement) nameElement.textContent = user.name;
+            if (yearElement) yearElement.textContent = `${user.department} - ${user.year}`;
+
+            // Update profile grid data
+            const infoCards = profileContainer.querySelectorAll('.profile-info-card p, div[style*="rgba(255,255,255,0.5)"] p');
+            if (infoCards.length >= 4) {
+                infoCards[0].textContent = user.registerNumber;
+                infoCards[1].textContent = user.email;
+                infoCards[2].textContent = `${user.libraryStats.issuedCount} / 5`;
+                infoCards[3].textContent = `₹${user.libraryStats.totalFine.toFixed(2)}`;
+                if (user.libraryStats.totalFine > 0) {
+                    infoCards[3].style.color = '#e74c3c';
+                }
+            }
+
+            profileContainer.classList.add('auth-fade-in');
+        }
+    }
+});
+

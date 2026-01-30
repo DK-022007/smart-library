@@ -103,6 +103,13 @@
         </div>
     </footer>
 
+    <script src="auth.js"></script>
+    <script>
+        // Protect settings page - redirect if not logged in
+        if (!Auth.protectPage()) {
+            // If redirect is needed, stop further execution
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 
