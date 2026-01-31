@@ -526,6 +526,446 @@ footer {
     }
 }
 
+/* Tablet Specific Adjustments (768px and below) */
+@media (max-width: 768px) {
+    :root {
+        --header-height: 70px;
+        --sidebar-width: 250px;
+    }
+
+    header {
+        padding: 0 20px;
+        height: var(--header-height);
+    }
+
+    .logo-container img {
+        height: 45px;
+    }
+
+    .menu-toggle {
+        font-size: 20px;
+        padding: 8px;
+    }
+
+    .container {
+        padding: 60px 5%;
+    }
+
+    .about-section {
+        padding: 60px 5%;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    .departments-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
+
+    .dept-card {
+        padding: 30px 20px;
+        min-height: 220px;
+    }
+
+    .dept-icon {
+        font-size: 2.5rem;
+    }
+
+    .dept-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .hero {
+        padding: 40px 5%;
+        min-height: 60vh;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero-visual {
+        margin-top: 30px;
+    }
+
+    lottie-player {
+        width: 300px !important;
+        height: 300px !important;
+    }
+
+    .hero-search-container {
+        max-width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .hero-btn {
+        padding: 14px 35px;
+        font-size: 0.95rem;
+    }
+
+    .glass-container {
+        padding: 30px;
+        border-radius: 16px;
+    }
+
+    footer {
+        padding: 40px 5% 15px;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 25px;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+    }
+
+    .stat-card {
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .stat-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .stat-value {
+        font-size: 1.7rem;
+    }
+
+    .issued-books-table {
+        font-size: 0.9rem;
+    }
+
+    .issued-books-table th,
+    .issued-books-table td {
+        padding: 12px 10px;
+    }
+
+    .demo-login-btn {
+        padding: 12px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Mobile Specific Adjustments (480px and below) */
+@media (max-width: 480px) {
+    :root {
+        --header-height: 60px;
+        --sidebar-width: 220px;
+    }
+
+    header {
+        padding: 0 15px;
+        height: var(--header-height);
+    }
+
+    .logo-container img {
+        height: 40px;
+    }
+
+    .menu-toggle {
+        font-size: 18px;
+        padding: 6px;
+    }
+
+    .sidebar {
+        max-width: 220px;
+    }
+
+    .sidebar-menu li a {
+        padding: 15px 20px;
+        font-size: 0.95rem;
+    }
+
+    .main-wrapper {
+        margin-top: var(--header-height);
+    }
+
+    .container {
+        padding: 40px 3%;
+    }
+
+    .about-section {
+        padding: 40px 3%;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    .departments-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .dept-card {
+        padding: 25px 15px;
+        min-height: 200px;
+        border-radius: 16px;
+    }
+
+    .dept-icon {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+    }
+
+    .dept-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+
+    .dept-card p {
+        font-size: 0.85rem;
+    }
+
+    .hero {
+        padding: 30px 3%;
+        min-height: 50vh;
+        gap: 20px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+
+    .hero-visual {
+        width: 100%;
+    }
+
+    lottie-player {
+        width: 100% !important;
+        height: 250px !important;
+        max-width: 350px !important;
+    }
+
+    .hero-search-container {
+        padding: 6px 6px 6px 15px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+
+    .search-icon {
+        font-size: 0.9rem;
+        margin-right: 10px;
+    }
+
+    .hero-search-input {
+        font-size: 0.9rem;
+    }
+
+    .search-btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+
+    .hero-btn {
+        padding: 12px 30px;
+        font-size: 0.9rem;
+        width: fit-content;
+    }
+
+    .glass-container {
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 15px;
+    }
+
+    .glass-container h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .glass-container h3 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    footer {
+        padding: 30px 3% 10px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .footer-bottom {
+        font-size: 0.85rem;
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    /* Dashboard Responsive */
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .stat-card {
+        padding: 20px;
+        gap: 15px;
+        min-height: auto;
+    }
+
+    .stat-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem;
+        flex-shrink: 0;
+    }
+
+    .stat-info {
+        text-align: left;
+        flex: 1;
+    }
+
+    .stat-info h3 {
+        font-size: 0.95rem;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .stat-meta {
+        font-size: 0.8rem;
+    }
+
+    .issued-books-table {
+        font-size: 0.8rem;
+        min-width: 100%;
+    }
+
+    .issued-books-table th,
+    .issued-books-table td {
+        padding: 10px 8px;
+    }
+
+    .issued-books-table th {
+        font-size: 0.75rem;
+    }
+
+    /* Profile Responsive */
+    .profile-avatar {
+        width: 100px !important;
+        height: 100px !important;
+        font-size: 2.5rem !important;
+    }
+
+    .profile-info-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    .profile-info-card {
+        padding: 15px !important;
+    }
+
+    .profile-info-card h4 {
+        font-size: 0.8rem !important;
+    }
+
+    .profile-info-card p {
+        font-size: 1rem !important;
+    }
+
+    /* Demo Login Buttons Responsive */
+    .demo-login-section {
+        padding: 20px 3% !important;
+        border-radius: 12px !important;
+    }
+
+    .demo-login-section h3 {
+        font-size: 1.3rem !important;
+        margin-bottom: 15px !important;
+    }
+
+    .demo-login-section p {
+        font-size: 0.85rem !important;
+        margin-bottom: 15px !important;
+    }
+
+    .demo-buttons-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+
+    .demo-login-btn {
+        padding: 12px !important;
+        font-size: 0.85rem !important;
+        gap: 6px !important;
+    }
+
+    .demo-login-btn i {
+        font-size: 1.2rem !important;
+    }
+
+    .demo-login-btn span {
+        font-size: 0.95rem !important;
+    }
+
+    .demo-login-btn small {
+        font-size: 0.75rem !important;
+    }
+}
+
+/* Extra Small Devices (320px and below) */
+@media (max-width: 320px) {
+    .hero h1 {
+        font-size: 1.4rem;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+    }
+
+    .stat-value {
+        font-size: 1.3rem;
+    }
+
+    .issued-books-table {
+        font-size: 0.7rem;
+    }
+
+    .issued-books-table th,
+    .issued-books-table td {
+        padding: 8px 6px;
+    }
+}
+
 /* Dark Mode Overrides */
 body.dark-mode {
     --bg-gradient: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
