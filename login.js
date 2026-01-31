@@ -6,7 +6,7 @@ const dummyUsers = {
         registerNumber: "412622104025",
         rollNumber: "22IT025",
         department: "Information Technology",
-        email: "dhivya.it@loyola.edu.in",
+        email: "dhivya.it@dmifoundation.org",
         year: "3rd Year",
         libraryStats: {
             issuedCount: 2,
@@ -36,12 +36,12 @@ const dummyUsers = {
         registerNumber: "2026IT024",
         rollNumber: "22IT024",
         department: "Information Technology",
-        email: "joseph.vijay@loyola.edu.in",
+        email: "joseph.vijay@dmifoundation.org",
         year: "1st Year",
         libraryStats: {
             issuedCount: 4,
             remainingCount: 1,
-            totalFine: 0.00,
+            totalFine: 50.00,
             books: [
                 {
                     title: "Data Structures and Algorithms",
@@ -80,7 +80,7 @@ const dummyUsers = {
         registerNumber: "2026CSE001",
         rollNumber: "22CSE001",
         department: "Computer Science and Engineering",
-        email: "priya.sharma@loyola.edu.in",
+        email: "priya.sharma@dmifoundation.org",
         year: "2nd Year",
         libraryStats: {
             issuedCount: 3,
@@ -117,12 +117,12 @@ const dummyUsers = {
         registerNumber: "2026ECE045",
         rollNumber: "22ECE045",
         department: "Electronics and Communication Engineering",
-        email: "rajesh.kumar@loyola.edu.in",
+        email: "rajesh.kumar@dmifoundation.org",
         year: "3rd Year",
         libraryStats: {
             issuedCount: 1,
             remainingCount: 4,
-            totalFine: 0.00,
+            totalFine: 50.00,
             books: [
                 {
                     title: "Digital Signal Processing",
