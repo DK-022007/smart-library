@@ -13,18 +13,22 @@
 }
 
 .intro-panel {
+    --shelf-top: #3d2817;
+    --shelf-mid: #2d1f0f;
+    --shelf-btm: #1f1410;
+    --light: rgba(255,255,255,0.06);
     width: 50%;
     height: 100%;
-    background: linear-gradient(180deg, #3d2817 0%, #2d1f0f 50%, #1f1410 100%);
-    /* Dark wood shelf color */
+    background: linear-gradient(180deg, var(--shelf-top) 0%, var(--shelf-mid) 50%, var(--shelf-btm) 100%);
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    transition: transform 1.8s cubic-bezier(0.86, 0, 0.07, 1);
-    /* EaseInOutExpo-ish */
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
+    transition: transform 1.8s cubic-bezier(0.86, 0, 0.07, 1), box-shadow 0.6s ease;
+    box-shadow: inset 0 10px 30px rgba(0,0,0,0.6), 0 8px 30px rgba(0,0,0,0.6);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
 }
 
 .left-panel {
@@ -43,20 +47,15 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    /* subtle wood grain + soft top lighting */
     background-image:
-        /* Shelf lines */
-        repeating-linear-gradient(0deg,
-            rgba(0, 0, 0, 0.4) 0px, rgba(0, 0, 0, 0.4) 2px,
-            transparent 2px, transparent 90px),
-        /* Wood texture */
-        repeating-linear-gradient(90deg,
-            rgba(255, 255, 255, 0.02) 0px,
-            rgba(255, 255, 255, 0.02) 2px,
-            transparent 2px,
-            transparent 4px);
-    background-size: 100% 90px, 3px 100%;
+        linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 20%),
+        repeating-linear-gradient(0deg, rgba(0,0,0,0.28) 0px, rgba(0,0,0,0.28) 2px, transparent 2px, transparent 100px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 6px);
+    background-size: 100% 100%, 100% 90px, 3px 100%;
     opacity: 1;
     z-index: 1;
+    mix-blend-mode: overlay;
 }
 
 /* Book spines - dynamic pattern */
@@ -65,6 +64,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    /* layered book-spine blocks with subtle label highlights */
     background-image: 
         /* Red books */
         linear-gradient(90deg, #d32f2f 0%, #c62828 100%),
@@ -90,7 +90,22 @@
         50% 4%, 62% 12%, 75% 6%, 88% 9%;
     background-repeat: no-repeat;
     z-index: 2;
-    opacity: 0.9;
+    opacity: 0.98;
+    /* add subtle emboss and label highlights using overlays */
+    box-shadow: inset -6px 0 18px rgba(0,0,0,0.45);
+    filter: contrast(1.02) saturate(1.05);
+    transition: transform 1.8s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+/* small animated parallax on the book pattern */
+@keyframes books-parallax {
+    0% { background-position: 0% 0%, 12% 8%, 26% 2%, 37% 10%, 50% 4%, 62% 12%, 75% 6%, 88% 9%; }
+    50% { background-position: -1% 0%, 11% 10%, 25% 4%, 38% 12%, 51% 8%, 63% 14%, 76% 8%, 87% 11%; }
+    100% { background-position: 0% 0%, 12% 8%, 26% 2%, 37% 10%, 50% 4%, 62% 12%, 75% 6%, 88% 9%; }
+}
+
+.intro-panel::after {
+    animation: books-parallax 6s ease-in-out infinite both;
 }
 
 /* Loading/Logo in center before split */
@@ -104,17 +119,37 @@
     color: white;
     font-weight: 700;
     opacity: 1;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease, transform 1s cubic-bezier(0.22,1,0.36,1);
 }
 
 .intro-active .left-panel {
-    transform: translateX(-100%);
+    transform: translateX(-110%) rotateY(-12deg);
+    box-shadow: -40px 0 80px rgba(0,0,0,0.45);
 }
 
 .intro-active .right-panel {
-    transform: translateX(100%);
+    transform: translateX(110%) rotateY(12deg);
+    box-shadow: 40px 0 80px rgba(0,0,0,0.45);
 }
 
 .intro-active .intro-logo {
     opacity: 0;
+    transform: translate(-50%, -52%) scale(0.8);
 }
+
+/* subtle shelf trim at top/bottom to give depth */
+.intro-panel::after, .intro-panel::before { pointer-events: none; }
+
+/* overall opening sequence: delay for logo then split */
+@keyframes split-open {
+    0% { transform: translateX(0) rotateY(0); }
+    70% { transform: translateX(0) rotateY(0); }
+    100% { transform: translateX(110%) rotateY(12deg); }
+}
+
+/* apply a slight zoom-out while idle for cinematic look */
+.intro-overlay { transition: opacity 0.6s ease; }
+.intro-overlay.idle { transform: scale(1.02); }
+
+/* optional: reduce pointer blocking after animation ends */
+.intro-overlay.done { pointer-events: none; opacity: 0; }

@@ -133,6 +133,74 @@ const dummyUsers = {
                 }
             ]
         }
+    },
+    '2026MECH012': {
+        password: 'mech2026',
+        name: "Ananya Verma",
+        registerNumber: "2026MECH012",
+        rollNumber: "22MECH012",
+        department: "Mechanical Engineering",
+        email: "ananya.verma@dmifoundation.org",
+        year: "2nd Year",
+        libraryStats: {
+            issuedCount: 1,
+            remainingCount: 4,
+            totalFine: 0.00,
+            books: [
+                {
+                    title: "Thermodynamics: Principles and Practice",
+                    issueDate: "12 Jan 2026",
+                    dueDate: "26 Jan 2026",
+                    status: "overdue",
+                    fine: 0
+                }
+            ]
+        }
+    },
+    '2026IT030': {
+        password: 'it2026',
+        name: "Arjun Patel",
+        registerNumber: "2026IT030",
+        rollNumber: "22IT030",
+        department: "Information Technology",
+        email: "arjun.patel@dmifoundation.org",
+        year: "1st Year",
+        libraryStats: {
+            issuedCount: 0,
+            remainingCount: 5,
+            totalFine: 0.00,
+            books: []
+        }
+    },
+    'GUEST0001': {
+        password: 'guest',
+        name: "Guest User",
+        registerNumber: "GUEST0001",
+        rollNumber: "",
+        department: "Visitor",
+        email: "guest@example.com",
+        year: "N/A",
+        libraryStats: {
+            issuedCount: 0,
+            remainingCount: 0,
+            totalFine: 0.00,
+            books: []
+        }
+    },
+    'STAFF001': {
+        password: 'stafflib',
+        name: "Librarian",
+        registerNumber: "STAFF001",
+        rollNumber: "",
+        department: "Library Staff",
+        email: "librarian@dmifoundation.org",
+        year: "",
+        libraryStats: {
+            issuedCount: 0,
+            remainingCount: 0,
+            totalFine: 0.00,
+            books: []
+        }
     }
 };
 
