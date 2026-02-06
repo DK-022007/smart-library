@@ -1,13 +1,13 @@
 // Dummy user credentials database
 const dummyUsers = {
-    '412622104025': {
-        password: 'password123',
-        name: "Dhivya Shree",
+    'jeba.kumar@gmail.org': {
+        password: 'ungaljk',
+        name: "Jeba Kumar",
         registerNumber: "412622104025",
         rollNumber: "22IT025",
         department: "Information Technology",
-        email: "dhivya.it@dmifoundation.org",
-        year: "3rd Year",
+        email: "jeba.kumar@gmail.org",
+        year: "1rd Year",
         libraryStats: {
             issuedCount: 2,
             remainingCount: 3,
@@ -30,13 +30,13 @@ const dummyUsers = {
             ]
         }
     },
-    '2026IT024': {
-        password: 'joseph123',
+    'joseph.vijay@tvk.org': {
+        password: 'futurecm',
         name: "Joseph Vijay",
         registerNumber: "2026IT024",
         rollNumber: "22IT024",
         department: "Information Technology",
-        email: "joseph.vijay@dmifoundation.org",
+        email: "joseph.vijay@tvk.org",
         year: "1st Year",
         libraryStats: {
             issuedCount: 4,
@@ -74,13 +74,13 @@ const dummyUsers = {
             ]
         }
     },
-    '2026CSE001': {
-        password: 'cse2026',
-        name: "Priya Sharma",
+    'thala.ajith@racing.forever.org': {
+        password: 'shalani',
+        name: "Thala Ajith",
         registerNumber: "2026CSE001",
         rollNumber: "22CSE001",
         department: "Computer Science and Engineering",
-        email: "priya.sharma@dmifoundation.org",
+        email: "thala.ajith@racing,forever.org",
         year: "2nd Year",
         libraryStats: {
             issuedCount: 3,
@@ -111,14 +111,14 @@ const dummyUsers = {
             ]
         }
     },
-    '2026ECE045': {
-        password: 'ece2026',
-        name: "Rajesh Kumar",
+    'neymar.jr@brazil.org': {
+        password: 'bruna',
+        name: "Neymar",
         registerNumber: "2026ECE045",
         rollNumber: "22ECE045",
         department: "Electronics and Communication Engineering",
-        email: "rajesh.kumar@dmifoundation.org",
-        year: "3rd Year",
+        email: "neymar.jr@brazil.org",
+        year: "2rd Year",
         libraryStats: {
             issuedCount: 1,
             remainingCount: 4,
@@ -134,18 +134,18 @@ const dummyUsers = {
             ]
         }
     },
-    '2026MECH012': {
+    'viratkholi@rcbforever.org': {
         password: 'mech2026',
-        name: "Ananya Verma",
+        name: "Virat Kholi",
         registerNumber: "2026MECH012",
         rollNumber: "22MECH012",
         department: "Mechanical Engineering",
-        email: "ananya.verma@dmifoundation.org",
+        email: "viratkholi@rcbforever.org",
         year: "2nd Year",
         libraryStats: {
             issuedCount: 1,
             remainingCount: 4,
-            totalFine: 0.00,
+            totalFine: 450.00,
             books: [
                 {
                     title: "Thermodynamics: Principles and Practice",
@@ -157,13 +157,13 @@ const dummyUsers = {
             ]
         }
     },
-    '2026IT030': {
-        password: 'it2026',
-        name: "Arjun Patel",
+    'lionel.messo@visca.barca.org': {
+        password: 'antonela',
+        name: "Lionel Messi",
         registerNumber: "2026IT030",
         rollNumber: "22IT030",
         department: "Information Technology",
-        email: "arjun.patel@dmifoundation.org",
+        email: "lionel.messo@visca.barca.org",
         year: "1st Year",
         libraryStats: {
             issuedCount: 0,
@@ -172,29 +172,29 @@ const dummyUsers = {
             books: []
         }
     },
-    'GUEST0001': {
-        password: 'guest',
-        name: "Guest User",
-        registerNumber: "GUEST0001",
-        rollNumber: "",
-        department: "Visitor",
-        email: "guest@example.com",
-        year: "N/A",
+    'cristinoronaldo07@hala,madrid.org': {
+        password: 'Georgina',
+        name: "Cristino Ronaldo",
+        registerNumber: "CR7",
+        rollNumber: "07",
+        department: "Information Technology",
+        email: "cristinoronaldo07@hala.madrid.org",
+        year: "1st year",
         libraryStats: {
-            issuedCount: 0,
-            remainingCount: 0,
+            issuedCount: 7,
+            remainingCount: 28,
             totalFine: 0.00,
             books: []
         }
     },
     'STAFF001': {
         password: 'stafflib',
-        name: "Librarian",
-        registerNumber: "STAFF001",
-        rollNumber: "",
+        name: "Dhoni",
+        registerNumber: "STAFF007",
+        rollNumber: "7",
         department: "Library Staff",
-        email: "librarian@dmifoundation.org",
-        year: "",
+        email: "mahendrasinghdhoni@csk.forever.org",
+        year: "immortal",
         libraryStats: {
             issuedCount: 0,
             remainingCount: 0,
